@@ -3,3 +3,5 @@ src/server/*/__pycache__/
 .DS_Store
 htmlcov
 .coverage
+node_modules
+dist
