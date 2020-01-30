@@ -34,6 +34,16 @@ module.exports = {
       "args": "after-used",
       "ignoreRestSiblings": false
     }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+      }
+   ],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "jest/no-disabled-tests": "warn",
     "jest/no-focused-tests": "error",
