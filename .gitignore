@@ -1,5 +1,5 @@
 db.sqlite3
-*/__pycache__
+src/server/*/__pycache__/
 .DS_Store
 htmlcov
 .coverage
