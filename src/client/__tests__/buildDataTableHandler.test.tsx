@@ -1,4 +1,4 @@
-import buildDataTableHandler from '../buildDataTableHandler';
+import buildDataTableHandler from '../Components/DataTable/Handlers/buildDataTableHandler';
 
 const task1 = {
   name: 'task1',

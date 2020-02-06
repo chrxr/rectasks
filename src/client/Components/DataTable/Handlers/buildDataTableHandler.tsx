@@ -1,11 +1,5 @@
 import React from 'react';
-
-export interface taskData {
-  name: string,
-  lastCompleted: string,
-  frequency: string,
-  id: number,
-}
+import taskData from '../../../Types/taskDataType';
 
 export interface TableHandlerProps {
   json: Array<taskData>,
