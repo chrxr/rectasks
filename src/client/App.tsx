@@ -1,7 +1,7 @@
 import React from 'react';
-import DataTable from './Components/DataTable/DataTable';
+import Page from './Components/Page/Page';
 
-const App = () => <DataTable />;
+const App = () => <Page />;
 
 
 export default App;

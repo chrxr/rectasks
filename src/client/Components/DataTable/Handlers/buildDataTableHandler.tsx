@@ -1,18 +1,19 @@
 import React from 'react';
 import taskData from '../../../Types/taskDataType';
 
-export interface TableHandlerProps {
-  json: Array<taskData>,
-  updateHandler: (event: React.MouseEvent<HTMLButtonElement>) => void
-}
+// export interface TableHandlerProps {
+//   json: Array<taskData>,
+//   // updateHandler: (event: React.MouseEvent<HTMLButtonElement>) => void
+// }
 
-const buildDataTableHandler = ({ json, updateHandler }: TableHandlerProps) => {
+const buildDataTableHandler = (json: taskData[]) => {
   const dataTable = [];
   for (let i = 0; i < json.length; i += 1) {
-    const name = <td>{json[i].name}</td>;
-    const lastCompleted = <td>{json[i].lastCompleted}</td>;
-    const frequency = <td>{json[i].frequency}</td>;
-    const update = <td><button name={json[i].id.toString()} type="button" onClick={updateHandler}>Update</button></td>;
+    const task = json[i];
+    const name = <td>{task.name}</td>;
+    const lastCompleted = <td>{task.lastCompleted}</td>;
+    const frequency = <td>{task.frequency}</td>;
+    const update = <td><button name={task.id.toString()} type="button">Update</button></td>;
     const row = (
       <tr>
         {name}
