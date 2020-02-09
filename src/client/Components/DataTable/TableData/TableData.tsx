@@ -34,7 +34,7 @@ const TableData = ({ jsonData, updateClickHandler }: TableDataProps) => {
     const frequency = <td>{task.frequency}</td>;
     const update = <td><button name={task.id.toString()} type="button" onClick={updateClickHandler}>Update</button></td>;
     const row = (
-      <tr>
+      <tr key={task.id}>
         {name}
         {lastCompleted}
         {frequency}

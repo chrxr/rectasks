@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import DataTable from '../DataTable/DataTable';
 import TableData from '../DataTable/TableData/TableData';
+import taskData from '../../Types/taskDataType';
 
 const Page = () => {
-  // let jsonData: taskData;
   const [dataLoaded, setDataLoaded] = useState(null);
   const [jsonData, setJsonData] = useState(null);
 
-  // const updateDate = (event: React.FormEvent<HTMLButtonElement>) => {
-  //   console.log(event);
-  //   // const now: Date = new Date();
-  //   // console.log(Date.getFullYear(Date.now()));
-  // };
-
   const updateClickHandler = (event: React.MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault();
-    console.log(event.currentTarget.name);
+    const jsonCopy = jsonData;
+    const today = new Date().toISOString().slice(0, 10);
+    const objectID = parseInt(event.currentTarget.name, 10);
+    let data = jsonData.filter((obj:taskData) => obj.id === objectID)[0];
+    data.lastCompleted = today;
+    const url = `http://localhost:8000/tasks/${data.id}/`;
+    data = JSON.stringify(data);
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: data,
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          setJsonData([...jsonCopy]);
+        }
+      });
   };
 
   useEffect(() => {

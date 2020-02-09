@@ -14,7 +14,9 @@ const DataTable = ({ children }: DataTableProps) => (
         <th>Update</th>
       </tr>
     </thead>
-    {children}
+    <tbody>
+      {children}
+    </tbody>
   </table>
 );
 
