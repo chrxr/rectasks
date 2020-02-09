@@ -1,12 +1,10 @@
-import React from 'react';
-import buildDataTableHandler from './Handlers/buildDataTableHandler';
-import taskData from '../../Types/taskDataType';
+import React, { ReactElement } from 'react';
 
 export interface DataTableProps {
-  jsonData: taskData[]
+  children: ReactElement
 }
 
-const DataTable = ({ jsonData }: DataTableProps) => (
+const DataTable = ({ children }: DataTableProps) => (
   <table>
     <thead>
       <tr>
@@ -16,7 +14,7 @@ const DataTable = ({ jsonData }: DataTableProps) => (
         <th>Update</th>
       </tr>
     </thead>
-    {buildDataTableHandler(jsonData)}
+    {children}
   </table>
 );
 
