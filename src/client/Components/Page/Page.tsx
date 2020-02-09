@@ -13,8 +13,8 @@ const Page = () => {
     const today = new Date().toISOString().slice(0, 10);
     const objectID = parseInt(event.currentTarget.name, 10);
     let data = jsonData.filter((obj:taskData) => obj.id === objectID)[0];
-    data.lastCompleted = today;
     const url = `http://localhost:8000/tasks/${data.id}/`;
+    data.lastCompleted = today;
     data = JSON.stringify(data);
     fetch(url, {
       method: 'PUT',
