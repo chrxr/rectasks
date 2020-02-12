@@ -19,7 +19,7 @@ module.exports = {
       {
         test: /\.ts(x?)$/,
         exclude: /(node_modules)/,
-        loader: ['ts-loader, eslint-loader'],
+        loader: ['ts-loader', 'eslint-loader'],
       },
       {
         test: /\.css$/i,
