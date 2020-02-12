@@ -19,7 +19,7 @@ module.exports = {
       {
         test: /\.ts(x?)$/,
         exclude: /(node_modules)/,
-        loader: 'ts-loader',
+        loader: ['ts-loader, eslint-loader'],
       },
       {
         test: /\.css$/i,
@@ -30,11 +30,11 @@ module.exports = {
         test: /\.js$/,
         loader: 'source-map-loader',
       },
-      {
-        test: /\.ts(x?)$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-      },
+      // {
+      //   test: /\.ts(x?)$/,
+      //   exclude: /node_modules/,
+      //   loader: 'eslint-loader',
+      // },
     ],
   },
   output: {

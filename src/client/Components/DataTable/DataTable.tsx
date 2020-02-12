@@ -1,11 +1,23 @@
 import React, { ReactElement } from 'react';
+import styled from 'styled-components';
 
 export interface DataTableProps {
   children: ReactElement
 }
 
+export const StyledTable = styled.table`
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color: white;
+  margin: 0 auto;
+  th, td {
+    padding: 1em;
+    border: 1px solid black;
+  }
+`;
+
 const DataTable = ({ children }: DataTableProps) => (
-  <table>
+  <StyledTable>
     <thead>
       <tr>
         <th>Name</th>
@@ -17,7 +29,7 @@ const DataTable = ({ children }: DataTableProps) => (
     <tbody>
       {children}
     </tbody>
-  </table>
+  </StyledTable>
 );
 
 export default DataTable;
