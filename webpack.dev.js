@@ -12,4 +12,4 @@ module.exports = merge(common, {
     hotOnly: true,
     publicPath: 'http://localhost:3000/dist',
   },
-}); 
+});

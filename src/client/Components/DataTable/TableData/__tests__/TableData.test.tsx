@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { spy } from 'sinon';
 import TableData from '../TableData';
 
@@ -31,7 +31,7 @@ describe('<TableData>', () => {
     expect(fakeClickHandler).toHaveProperty('callCount', 1);
   });
 
-  it('displays the data correctly', () => {
+  it('displays the data correctly in the table', () => {
     expect(wrapper.find('[data-testid="name"]').at(0).text()).toEqual('task 1');
     expect(wrapper.find('[data-testid="lastCompleted"]').at(0).text()).toEqual('01-02-2020');
     expect(wrapper.find('[data-testid="frequency"]').at(0).text()).toEqual('annual');

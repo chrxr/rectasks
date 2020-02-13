@@ -1,6 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   plugins: [
@@ -11,6 +12,7 @@ module.exports = {
       filename: 'index.html',
       inject: 'body',
     }),
+    new Dotenv(),
   ],
   entry: './src/client/index.tsx',
   resolve: { extensions: ['*', '.js', '.jsx', '.ts', '.tsx'] },
