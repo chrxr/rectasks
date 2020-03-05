@@ -10,8 +10,8 @@ FREQCHOICES = [
 
 class task(models.Model):
   name = models.CharField(max_length=246)
-  lastCompleted = models.DateField(blank=True, null=True)
+  lastCompleted = models.DateField(blank=True, null=True) 
   frequency = models.CharField(max_length=246, choices=FREQCHOICES) 
 
-  def __unicode__(self):
+  def __str__(self):
     return self.name

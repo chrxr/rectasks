@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import DataTable from '../DataTable/DataTable';
 import TableData from '../DataTable/TableData/TableData';
 import updateClickHandler from './Handlers/updateClickHandler';
-import getDataHandler from './Handlers/getDataHandler';
 
 const Page = () => {
   const [dataLoaded, setDataLoaded] = useState(null);
@@ -13,20 +13,16 @@ const Page = () => {
     setJsonData([...updatedJson]);
   };
 
-  const useGetDataHandler = () => {
-    getDataHandler(process.env.DEV_URL)
-      .then((data) => {
-        setJsonData(data);
-        return data;
+  useEffect(() => {
+    axios.get(process.env.DEV_URL)
+      .then((res) => {
+        setJsonData(res.data);
+        return res.data;
       })
       .then((data) => {
         setDataLoaded(data);
       })
       .catch((error) => error);
-  };
-
-  useEffect(() => {
-    useGetDataHandler();
   }, []);
 
   if (dataLoaded === null) {

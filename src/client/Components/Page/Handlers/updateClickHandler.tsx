@@ -14,7 +14,7 @@ const updateClickHandler = (
   const url = `http://localhost:8000/tasks/${data.id}/`;
   data.lastCompleted = today;
 
-  axios.post(url, data)
+  axios.put(url, data)
     .then((res) => {
       if (res.status === 200) {
         jsonCopy.filter((obj:taskData) => obj.id === objectID)[0] = data;

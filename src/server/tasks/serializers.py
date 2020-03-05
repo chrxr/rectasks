@@ -7,3 +7,7 @@ class TasksSerializer(serializers.ModelSerializer):
   class Meta:
     model = task
     fields = ['id', 'name', 'lastCompleted', 'frequency']
+
+class SearchSerializer(serializers.Serializer):
+  name = serializers.CharField(max_length=100)
+  frequency = serializers.CharField(max_length=25)

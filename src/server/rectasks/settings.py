@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'django_elasticsearch_dsl',
+
     'tasks',
 ]
 
@@ -120,6 +122,12 @@ USE_TZ = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
 )
+
+ELASTICSEARCH_DSL={
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/

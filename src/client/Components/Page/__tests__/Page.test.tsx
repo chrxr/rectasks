@@ -1,11 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { spy } from 'sinon';
 import Page from '../Page';
-import DataTable from '../../DataTable/DataTable';
-import TableData from '../../DataTable/TableData/TableData';
+import taskData from '../../../Types/taskDataType';
+import getDataHandler from '../Handlers/getDataHandler';
 
-const fakeClickHandler = spy();
 const jsonData = [
   {
     name: 'task 1',
@@ -21,8 +19,21 @@ const jsonData = [
   },
 ];
 
+jest.mock(getDataHandler);
+
+export interface pageProps {
+  getDataHandler: ()=>Promise<taskData[]>
+}
+
 describe('<Page />', () => {
-  it('Renders correctly', () => {
-    const wrapper = shallow(<Page />);
+  getDataHandler.mockResolvedValue(Promise.resolve(jsonData));
+  beforeEach(() => {
+    let wrapper = shallow(<Page />);
+  });
+
+  describe('on start', () => {
+    it('loads the authors', () => {
+      expect(getDataHandler).toHaveBeenCalled();
+    });
   });
 });
